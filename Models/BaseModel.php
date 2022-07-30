@@ -1,5 +1,5 @@
 <?php
-include '../Config/Database.php';
+include_once '../Config/Database.php';
 
 abstract class BaseModel 
 {

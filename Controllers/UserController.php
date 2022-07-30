@@ -1,21 +1,30 @@
 <?php
-include 'BaseController.php';
-include '../Models/User.php';
+include_once 'BaseController.php';
+include_once '../Models/User.php';
  
 class UserController extends BaseController 
 { 
     public function login() 
-    {
+    {   
         $user = new User();
         $infor = $user->getUser();
 
         if ($this->isPost()) {
-            var_dump($this->request());
+            $request = $this->request();
+            $login = $user->checkUserLogin($request);
+
+            if($login){
+                $_SESSION['name'] = $request['name'];
+                $_SESSION['timeout'] = time();
+                return header('Location: home');
+            }
+            session_destroy();
         }
 
-        $this->load('login', compact('infor'));
-        $this->show();
+        $this->show('login', compact('infor'));
     }
+
+
 }
 
 ?>

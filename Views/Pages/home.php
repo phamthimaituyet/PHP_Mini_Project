@@ -1,5 +1,7 @@
-<?php require('Layouts/header.php'); ?>
+<?php include 'header.php'; ?>
 
 Đây là home
 
-<?php require('Layouts/footer.php'); ?>
+<?= var_dump($_SESSION) ?>
+
+<?php include 'footer.php'; ?>
