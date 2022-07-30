@@ -15,4 +15,9 @@ abstract class BaseModel
             die("Connection failed: " . $conn->connect_error);
         }
     }
+
+    public function getFirst($array)
+    {
+        return (object)mysqli_fetch_assoc($array);
+    }
 }

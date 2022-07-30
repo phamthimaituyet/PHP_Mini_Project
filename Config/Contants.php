@@ -5,4 +5,3 @@ define('USER', 'root');
 define('PASSWORD', '');
 define('DB', 'mini_project');
 
-

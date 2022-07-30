@@ -9,7 +9,8 @@ class UserController extends BaseController
         $user = new User();
         
         $infor = $user->getUser();
-        include '../Views/Pages/login.php';
+        $this->load('login', compact('infor'));
+        $this->show();
     }
 }
 

@@ -1,5 +1,5 @@
 <?php
-include 'Config.php';
+require '../vendor/autoload.php';
 
 class Database
 {
@@ -12,6 +12,7 @@ class Database
 
         return $this->conn;
     }
+    
     // Hàm đóng kết nối CSDL
     public function closeDatabase()
     {

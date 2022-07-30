@@ -10,10 +10,10 @@ class User extends BaseModel
 
     function getUser()
     {
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM users limit 1";
         // thực thi
         $result = mysqli_query($this->conn, $sql);
 
-        return $result;
+        return $this->getFirst($result);
     }
 }
