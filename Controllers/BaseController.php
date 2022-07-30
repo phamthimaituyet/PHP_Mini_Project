@@ -30,14 +30,47 @@ abstract class BaseController
     }
 
      /**
-	 * Show view
+     * Show view
      * 
      * @desc    Hàm hiển thị toàn bộ view đã load, được dùng ở controller
-	 */
+     */
     public function show()
     {
         foreach ($this->__content as $html){
             echo $html;
         }
+    }
+
+    /**
+     * check request is post 
+     * 
+     * @desc  kiểm tra request có phải là post
+     */
+    public function isPost()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * get value request 
+     * 
+     * @desc  lấy giá trị request
+     */
+    public function request($name = null)
+    {
+        if (!$name) {
+            array_shift($_REQUEST);
+            return $_REQUEST;
+        }
+
+        if ($_REQUEST[$name]) {
+            return $_REQUEST[$name];
+        }
+
+        return null;
     }
 }
