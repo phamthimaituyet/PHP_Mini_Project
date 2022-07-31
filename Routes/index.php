@@ -1,4 +1,6 @@
 <?php
+require '../vendor/autoload.php';
+
 require '../Controllers/UserController.php';
 require '../Controllers/HomeController.php';
 
@@ -17,6 +19,10 @@ switch($page){
     case 'login':
         $user = new UserController();
         $user->login();
+        break;
+    case 'register':
+        $user = new UserController();
+        $user->register();
         break;
     default:
         echo 'có lỗi';
