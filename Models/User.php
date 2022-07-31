@@ -29,8 +29,9 @@ class User extends BaseModel
             return false;
         }else{
             $sql = "INSERT INTO users (name, password) VALUES ('$request[name]' ,'$request[password]')";
-            $result = mysqli_query($this->conn, $sql);
-            return true;
+            mysqli_query($this->conn, $sql);
         }
+        
+        return true;
     }
 }

@@ -14,6 +14,16 @@ class UserController extends BaseController
             if($login){
                 $_SESSION['name'] = $request['name'];
                 $_SESSION['timeout'] = time();
+                
+                if ($request['rm']) {
+                    setcookie('name', $request['name'], time() + (86400 * 30), "/");
+                    setcookie('password', $request['password'], time() + (86400 * 30), "/");
+                } else {
+                    unset($_COOKIE['name']); 
+                    setcookie('name', null, -(time() + (86400 * 30)), '/'); 
+                    unset($_COOKIE['password']); 
+                    setcookie('password', null, -(time() + (86400 * 30)), '/'); 
+                }
                 return header('Location: home');
             }
         }
