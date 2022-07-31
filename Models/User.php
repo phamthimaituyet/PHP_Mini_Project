@@ -9,15 +9,6 @@ class User extends BaseModel
         parent::__construct();
     }
 
-    function getUser()
-    {
-        $sql = "SELECT * FROM users limit 1";
-        // thực thi
-        $result = mysqli_query($this->conn, $sql);
-
-        return $this->getFirst($result);
-    }
-
     function checkUserLogin($request)
     {
         $sql = "SELECT * FROM users WHERE name = '" . $request['name'] . "' AND password = '" . $request['password'] . "'";
