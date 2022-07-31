@@ -24,6 +24,20 @@ class UserController extends BaseController
         $this->show('login', compact('infor'));
     }
 
+    public function register()
+    {
+        $user = new User();
+        if($this->isPost()) {
+            $request = $this->request();
+            $register = $user->singupUser($request);
+
+            if($register){
+                return header('Location: login');
+            }
+        }
+
+        $this->show('register');
+    }
 
 }
 

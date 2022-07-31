@@ -126,13 +126,13 @@
             </div>
             <div class="form__right">
                 <div class="form__padding-right">
-                    <form action="login" method="post">
+                    <form action="register" method="post">
                         <h1 class="form__title">Member Login</h1>
                         <input class="form__name" type="text" placeholder="Name" name="name" value="" />
                         <input class="form__password" type="text" placeholder="******" name="password" value="" />
-                        <input class="form__submit-btn" type="submit" value="Login" />
+                        <input class="form__submit-btn" type="submit" value="Singup" />
                     </form>
-                    <p> <a class="form__link" href="">Create your account</a></p>
+                    <p> <a class="form__link" href="">Login</a></p>
                 </div>
             </div>
         </div>

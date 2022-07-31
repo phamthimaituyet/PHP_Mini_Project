@@ -18,6 +18,10 @@ switch($page){
         $user = new UserController();
         $user->login();
         break;
+    case 'register':
+        $user = new UserController();
+        $user->register();
+        break;
     default:
         echo 'có lỗi';
         break;
