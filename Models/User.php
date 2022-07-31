@@ -26,8 +26,7 @@ class User extends BaseModel
         $result = mysqli_query($this->conn, $sql);
 
         if (mysqli_num_rows($result) > 0){
-            echo '<script language="javascript">alert("Bị trùng tên hoặc chưa nhập tên!"); window.location="register";</script>';
-            die ();
+            return false;
         }else{
             $sql = "INSERT INTO users (name, password) VALUES ('$request[name]' ,'$request[password]')";
             $result = mysqli_query($this->conn, $sql);
