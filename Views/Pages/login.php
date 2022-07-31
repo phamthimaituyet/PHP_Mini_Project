@@ -24,7 +24,7 @@
                         <input class="form__password" type="text" placeholder="******" name="password" value="" />
                         <input class="form__submit-btn" type="submit" value="Login" />
                     </form>
-                    <p> <a class="form__link" href="">Create your account</a></p>
+                    <p> <a class="form__link" href="register">Create your account</a></p>
                 </div>
             </div>
         </div>

@@ -24,7 +24,7 @@
                         <input class="form__password" type="text" placeholder="******" name="password" value="" />
                         <input class="form__submit-btn" type="submit" value="Singup" />
                     </form>
-                    <p> <a class="form__link" href="">Login</a></p>
+                    <p> <a class="form__link" href="login">Login</a></p>
                 </div>
             </div>
         </div>
