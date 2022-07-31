@@ -1,4 +1,6 @@
 <?php
+require '../vendor/autoload.php';
+
 require '../Controllers/UserController.php';
 require '../Controllers/HomeController.php';
 
