@@ -30,6 +30,9 @@ class UserController extends BaseController
 
             if($register){
                 return header('Location: login');
+            }else{
+                echo '<script language="javascript">alert("Bị trùng tên hoặc chưa nhập tên!"); window.location="register";</script>';
+                die ();
             }
         }
 
