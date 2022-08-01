@@ -14,11 +14,8 @@ class HomeController extends BaseController
     public function showAllNote()
     {
         $noteModel = new NoteModel();
-        $data = array(
-            'notes' => $noteModel->getAllNotes(1),
-        );
 
         $notes = $noteModel->getAllNotes(1);
-        $this->render('home', compact(['notes']));
+        $this->render('home', compact('notes'));
     }
 }
