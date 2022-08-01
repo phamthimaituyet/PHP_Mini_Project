@@ -13,11 +13,25 @@
 
 
 <div>
-    <h3>Your Note</h3>
+
+
+    <input
+            placeholder="Create new note"
+            type="submit">
 
     <?php
-        var_dump($notes);
-        echo "hay qua m"
+
+    if (!empty($notes)) {
+        echo "<h3>Your Note</h3>";
+        echo "<ul>";
+        foreach ($notes as $note) {
+            echo "<li>EHlo<button>Delete</button></li>";
+        }
+        echo "</ul>";
+    } else {
+        echo("No note here");
+    }
+
     ?>
 
 </div>

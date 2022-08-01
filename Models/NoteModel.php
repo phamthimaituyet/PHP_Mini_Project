@@ -9,10 +9,10 @@ class NoteModel extends BaseModel
         parent::__construct();
     }
 
-    function getAllNotes($id)
+    function getAllNotes($id): array
     {
         $sql = "SELECT * FROM `notes` WHERE id = '$id'";
         $result = mysqli_query($this->conn, $sql);
-        return $this->getFirst($result);
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 }
