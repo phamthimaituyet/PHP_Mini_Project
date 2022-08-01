@@ -1,3 +1,5 @@
-    Đây là footer
+<html>
+    <body> 
+ Mini Project
 </body>
 </html>

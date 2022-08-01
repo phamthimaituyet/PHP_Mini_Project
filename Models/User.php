@@ -9,7 +9,7 @@ class User extends BaseModel
         parent::__construct();
     }
 
-    function checkUserLogin($request)
+    function checkUserLogin($request): bool
     {
         $sql = "SELECT * FROM users WHERE name = '" . $request['name'] . "' AND password = '" . $request['password'] . "'";
         $result = mysqli_query($this->conn, $sql);
@@ -20,7 +20,7 @@ class User extends BaseModel
         return false;
     }
 
-    function singupUser($request)
+    function singupUser($request): bool
     {
         $sql = "SELECT * FROM users WHERE name = '" . $request['name'] . "' AND password = '" . $request['password'] . "'";
         $result = mysqli_query($this->conn, $sql);

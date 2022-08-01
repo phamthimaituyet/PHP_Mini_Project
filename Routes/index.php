@@ -14,7 +14,7 @@ if(isset($_GET['page'])){
 switch($page){
     case 'home':
         $home = new HomeController();
-        $home->index();
+        $home->showAllNote();
         break;
     case 'login':
         $user = new UserController();

@@ -14,6 +14,7 @@ class UserController extends BaseController
             if($login){
                 $_SESSION['name'] = $request['name'];
                 $_SESSION['timeout'] = time();
+                $_SESSION['user'] = $request;
                 
                 if ($request['rm']) {
                     setcookie('name', $request['name'], time() + (86400 * 30), "/");
@@ -37,6 +38,7 @@ class UserController extends BaseController
     public function register()
     {
         $user = new User();
+
         if($this->isPost()) {
             $request = $this->request();
             $register = $user->singupUser($request);

@@ -3,5 +3,8 @@
         "files": [
             "./Config/Contants.php"
         ]
-    }
+    },
+  "require": {
+    "ext-mysqli": "*"
+  }
 }

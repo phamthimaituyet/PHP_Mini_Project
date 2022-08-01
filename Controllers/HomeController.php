@@ -1,17 +1,24 @@
 <?php
 include_once 'BaseController.php';
+include_once '../Models/NoteModel.php';
 
 class HomeController extends BaseController
 {
-    public function  __construct()
+    public function __construct()
     {
         if (!isset($_SESSION['name'])) {
             return header('Location: login');
         }
     }
 
-    public function index()
+    public function showAllNote()
     {
-        $this->show('home');
+        $noteModel = new NoteModel();
+        $data = array(
+            'notes' => $noteModel->getAllNotes(1),
+        );
+
+        $notes = $noteModel->getAllNotes(1);
+        $this->render('home', compact(['notes']));
     }
 }
