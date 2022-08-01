@@ -78,6 +78,22 @@
     position: relative;
 }
 
+.remember{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.form__checkbox{
+    height: 14px;
+    width: 10%;
+    margin: 5px;
+
+}
+
+.form__checkbox:after {
+   display: none;
+}
+
 input {
     display: block;
     width: 100%;

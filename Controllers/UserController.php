@@ -18,11 +18,14 @@ class UserController extends BaseController
                 if ($request['rm']) {
                     setcookie('name', $request['name'], time() + (86400 * 30), "/");
                     setcookie('password', $request['password'], time() + (86400 * 30), "/");
+                    setcookie('rm', $request['rm'], time() + (86400 * 30), "/");
                 } else {
                     unset($_COOKIE['name']); 
                     setcookie('name', null, -(time() + (86400 * 30)), '/'); 
                     unset($_COOKIE['password']); 
                     setcookie('password', null, -(time() + (86400 * 30)), '/'); 
+                    unset($_COOKIE['rm']); 
+                    setcookie('rm', null, -(time() + (86400 * 30)), '/'); 
                 }
                 return header('Location: home');
             }

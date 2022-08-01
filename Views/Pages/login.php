@@ -23,7 +23,10 @@
                         <input class="form__name" type="text" placeholder="Name" name="name" value="<?= $_COOKIE['name'] ?? '' ?>" />
                         <input class="form__password" type="password" placeholder="******" name="password" value="<?= $_COOKIE['password'] ?? '' ?>" />
                         <input class="form__submit-btn" type="submit" value="Login" />
-                        <input type="checkbox" name="rm" /> Remember
+                        <div class="remember">
+                            <input type="checkbox" name="rm" class="form__checkbox" /> 
+                            <span>Remember</span>
+                        </div>
                     </form>
                     <p> <a class="form__link" href="register">Create your account</a></p>
                 </div>
