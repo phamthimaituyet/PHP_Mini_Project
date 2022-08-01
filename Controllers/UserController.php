@@ -25,7 +25,7 @@ class UserController extends BaseController
                     unset($_COOKIE['password']); 
                     setcookie('password', null, -(time() + (86400 * 30)), '/'); 
                     unset($_COOKIE['rm']); 
-                    setcookie('rm', null, -(time() + (86400 * 30)), '/'); 
+                    setcookie('rm', 0, -(time() + (86400 * 30)), '/');
                 }
                 return header('Location: home');
             }
