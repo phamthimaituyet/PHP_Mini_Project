@@ -43,8 +43,9 @@ if (!empty($notes)) {
                 <button 
                 class='btn btn-warning'
                 type='submit' 
-                formaction='/php/home/edit' 
-                name='edit'>
+                formaction='/php/home/toEdit'
+                value='" . $note['id'] . "'
+                name='note_id'>
                 Edit
                 </button>
                 </li>";

@@ -24,6 +24,14 @@ switch ($page) {
         $home = new HomeController();
         $home->deleteNote($_GET['delete']);
         break;
+    case 'home/toEdit':
+        $home = new HomeController();
+        $home->toEditPage($_GET['note_id']);
+        break;
+    case 'home/edit':
+        $home = new HomeController();
+        $home->updateNote($_GET['note_id'], $_GET['edit_content']);
+        break;
     case 'login':
         $user = new UserController();
         $user->login();
@@ -34,6 +42,6 @@ switch ($page) {
         break;
     default:
         echo 'có lỗi';
-        echo $page ;
+        echo $page;
         break;
 }
