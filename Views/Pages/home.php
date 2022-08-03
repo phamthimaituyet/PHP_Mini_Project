@@ -16,8 +16,7 @@
 
 
     <input
-            placeholder="Create new note"
-            type="submit">
+            placeholder="Create new note">
 
     <?php
 
@@ -25,11 +24,14 @@
         echo "<h3>Your Note</h3>";
         echo "<ul>";
         foreach ($notes as $note) {
-            echo "<li>EHlo<button>Delete</button></li>";
+            echo "<li>" . $note['content'] . "
+                <button>Delete</button>
+                <button>Edit</button>
+                </li>";
         }
         echo "</ul>";
     } else {
-        echo("No note here");
+        echo("You have no note, enter a new note!");
     }
 
     ?>

@@ -7,14 +7,22 @@ require '../Controllers/HomeController.php';
 session_start();
 $page = 'home';
 
-if(isset($_GET['page'])){
-    $page=$_GET['page'];
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
 }
 
-switch($page){
+switch ($page) {
     case 'home':
         $home = new HomeController();
         $home->showAllNote();
+        break;
+    case 'home/create':
+        $home = new HomeController();
+        $home->createNote();
+        break;
+    case 'home/delete':
+        $home = new HomeController();
+        $home->deleteNote(1);
         break;
     case 'login':
         $user = new UserController();
