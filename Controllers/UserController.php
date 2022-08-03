@@ -12,6 +12,7 @@ class UserController extends BaseController
             $login = $user->checkUserLogin($request);
 
             if($login){
+                $_SESSION['id'] = $login->id;
                 $_SESSION['name'] = $request['name'];
                 $_SESSION['timeout'] = time();
                 $_SESSION['user'] = $request;

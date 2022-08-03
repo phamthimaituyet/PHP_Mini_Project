@@ -9,18 +9,18 @@ class User extends BaseModel
         parent::__construct();
     }
 
-    function checkUserLogin($request): bool
+    function checkUserLogin($request)
     {
         $sql = "SELECT * FROM users WHERE name = '" . $request['name'] . "' AND password = '" . $request['password'] . "'";
         $result = mysqli_query($this->conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
-            return true;
+            return $this->getFirst($result);
         }
         return false;
     }
 
-    function singupUser($request): bool
+    function singupUser($request)
     {
         $sql = "SELECT * FROM users WHERE name = '" . $request['name'] . "' AND password = '" . $request['password'] . "'";
         $result = mysqli_query($this->conn, $sql);
