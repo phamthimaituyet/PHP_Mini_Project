@@ -21,8 +21,9 @@ switch ($page) {
         $home->createNote();
         break;
     case 'home/delete':
+        echo 'home/delete inside switch';
         $home = new HomeController();
-        $home->deleteNote(1);
+        $home->deleteNote($_GET['delete']);
         break;
     case 'login':
         $user = new UserController();

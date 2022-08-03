@@ -22,14 +22,17 @@
 
     if (!empty($notes)) {
         echo "<h3>Your Note</h3>";
+        echo "<form>";
         echo "<ul>";
+        var_dump($notes);
         foreach ($notes as $note) {
             echo "<li>" . $note['content'] . "
-                <button>Delete</button>
-                <button>Edit</button>
+                <button type='submit' formaction='/php/home/delete' name='delete' value='". $note['id'] ."'>Delete</button>
+                <button type='submit' formaction='/php/home/edit' name='edit'>Edit</button>
                 </li>";
         }
         echo "</ul>";
+        echo "</form>";
     } else {
         echo("You have no note, enter a new note!");
     }
