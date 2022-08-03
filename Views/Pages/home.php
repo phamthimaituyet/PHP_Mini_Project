@@ -7,39 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link href="./public/css/main.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body class="p-3">
 
+<form action="/php/home/create">
+    <div class="form-group">
+        <input type="text" class="form-control" id="inputUser" name="create-note" placeholder="Create new note"/>
+        <input type="submit" value="Create" class="btn btn-primary mt-1"/>
+    </div>
+</form>
 
-<div>
+<h3>Your Note</h3>
+<?php
 
+if (!empty($notes)) {
+    echo "<form>";
+    echo "<ul>";
 
-    <input
-            placeholder="Create new note">
-
-    <?php
-
-    if (!empty($notes)) {
-        echo "<h3>Your Note</h3>";
-        echo "<form>";
-        echo "<ul>";
-        var_dump($notes);
-        foreach ($notes as $note) {
-            echo "<li>" . $note['content'] . "
-                <button type='submit' formaction='/php/home/delete' name='delete' value='". $note['id'] ."'>Delete</button>
-                <button type='submit' formaction='/php/home/edit' name='edit'>Edit</button>
+    foreach ($notes as $note) {
+        echo "<li>
+                    <p class='fst-italic'>
+                    " . $note['content'] . "
+                    </p>
+                <button
+                class='btn btn-danger'
+                type='submit' 
+                formaction='/php/home/delete' 
+                name='delete'
+                value='" . $note['id'] . "'>
+                Delete
+                </button>
+                
+                <button 
+                class='btn btn-warning'
+                type='submit' 
+                formaction='/php/home/edit' 
+                name='edit'>
+                Edit
+                </button>
                 </li>";
-        }
-        echo "</ul>";
-        echo "</form>";
-    } else {
-        echo("You have no note, enter a new note!");
     }
+    echo "</ul>";
+    echo "<form/>";
+} else {
+    echo("You have no note, enter a new note!");
+}
 
-    ?>
-
-</div>
+?>
 
 
 </body>

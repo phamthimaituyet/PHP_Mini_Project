@@ -13,7 +13,7 @@ abstract class BaseController
     {
         // Chuyển mảng dữ liệu thành từng biến
         extract($data);
-        include '../Views/Pages/' . $view . '.php';
+        include_once '../Views/Pages/' . $view . '.php';
     }
 
     function render($view, $data = array())
@@ -29,10 +29,10 @@ abstract class BaseController
             $content = ob_get_contents();
             ob_end_clean();
             // Sau khi có kết quả đã được lưu vào biến $content, gọi ra template chung của hệ thống đế hiển thị ra cho người dùng
-            require_once('../Views/Layouts/application.php');
+            require('../Views/Layouts/application.php');
         } else {
             // Nếu file muốn gọi ra không tồn tại thì chuyển hướng đến trang báo lỗi.
-            //header('Location: index.php?controller=pages&action=error');
+            header('Location: login');
         }
     }
 

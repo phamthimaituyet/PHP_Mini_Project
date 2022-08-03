@@ -4,8 +4,11 @@ include_once '../Models/NoteModel.php';
 
 class HomeController extends BaseController
 {
+    private $noteModel;
+
     public function __construct()
     {
+        $this->noteModel = new NoteModel();
         if (!isset($_SESSION['name'])) {
             return header('Location: login');
         }
@@ -13,17 +16,15 @@ class HomeController extends BaseController
 
     public function showAllNote()
     {
-        $noteModel = new NoteModel();
-        $notes = $noteModel->getAllNotes(1);
+        $notes = $this->noteModel->getAllNotes($_SESSION['id']);
         $this->render('home', compact('notes'));
     }
 
-    public function createNote()
+    public function createNote($content)
     {
-        $noteModel = new NoteModel();
-        $noteModel->createNote("Hello", 1);
-        $notes = $noteModel->getAllNotes(1);
-        $this->render('home', compact('notes'));
+        $this->noteModel->createNote($content, $_SESSION['id']);
+        $notes = $this->noteModel->getAllNotes($_SESSION['id']);
+        header('Location: ../home');
     }
 
     public function updateNote()
@@ -35,9 +36,10 @@ class HomeController extends BaseController
 
     public function deleteNote($noteId)
     {
-        $noteModel = new NoteModel();
-        $noteModel->deleteNote($noteId);
-        $notes = $noteModel->getAllNotes(1);
-        $this->render('home', compact('notes'));
+        $this->noteModel->deleteNote($noteId);
+        $notes = $this->noteModel->getAllNotes($_SESSION['id']);
+        header('Location: ../home');
     }
+
+
 }

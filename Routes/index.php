@@ -18,10 +18,9 @@ switch ($page) {
         break;
     case 'home/create':
         $home = new HomeController();
-        $home->createNote();
+        $home->createNote($_GET['create-note']);
         break;
     case 'home/delete':
-        echo 'home/delete inside switch';
         $home = new HomeController();
         $home->deleteNote($_GET['delete']);
         break;
@@ -35,5 +34,6 @@ switch ($page) {
         break;
     default:
         echo 'có lỗi';
+        echo $page ;
         break;
 }

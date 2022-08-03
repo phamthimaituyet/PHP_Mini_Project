@@ -4,7 +4,7 @@ include_once 'BaseModel.php';
 
 class User extends BaseModel
 {
-    public function __construct() 
+    public function __construct()
     {
         parent::__construct();
     }
@@ -25,13 +25,13 @@ class User extends BaseModel
         $sql = "SELECT * FROM users WHERE name = '" . $request['name'] . "' AND password = '" . $request['password'] . "'";
         $result = mysqli_query($this->conn, $sql);
 
-        if (mysqli_num_rows($result) > 0){
+        if (mysqli_num_rows($result) > 0) {
             return false;
-        }else{
+        } else {
             $sql = "INSERT INTO users (name, password) VALUES ('$request[name]' ,'$request[password]')";
             mysqli_query($this->conn, $sql);
         }
-        
+
         return true;
     }
 }
