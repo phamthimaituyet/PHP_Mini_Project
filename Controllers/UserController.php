@@ -1,6 +1,6 @@
 <?php
 include_once 'BaseController.php';
-include_once '../Models/User.php';
+include_once '../Models/UserModel.php';
  
 class UserController extends BaseController 
 { 
