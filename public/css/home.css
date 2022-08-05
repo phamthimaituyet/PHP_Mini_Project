@@ -98,6 +98,10 @@
  .btn_add:hover {  
   opacity: 0.9;  
  } 
+
+ .btn_add.logout {
+   float: right;
+}
  
  .form-group{
     display: flex;

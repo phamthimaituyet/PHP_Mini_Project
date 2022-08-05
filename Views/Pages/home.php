@@ -11,6 +11,12 @@
 </head>
 
 <body class="p-3">
+    <div class="header">
+        <a href="logout" style="float: right;
+                                background-color: powderblue;
+                                border-radius: 5px;
+                                font-size: 20px;">Logout</a>
+    </div>
 
     <div id="app">
         <h1>To do notes</h1>

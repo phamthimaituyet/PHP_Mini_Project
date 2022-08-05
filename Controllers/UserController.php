@@ -55,6 +55,12 @@ class UserController extends BaseController
         $this->show('register');
     }
 
+    public function logout(){
+        unset($_SESSION['name']); // xóa session user đã tạo khi đăng nhập
+        unset($_SESSION['id']);
+		header('Location: login'); // chuyển hướng về login
+    }
+
 }
 
 ?>

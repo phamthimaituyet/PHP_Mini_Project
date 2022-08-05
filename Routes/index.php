@@ -40,6 +40,10 @@ switch ($page) {
         $user = new UserController();
         $user->register();
         break;
+    case 'logout':
+        $user = new UserController();
+        $user->logout();
+        break;
     default:
         echo 'có lỗi';
         echo $page;
