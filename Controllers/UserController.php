@@ -6,7 +6,8 @@ class UserController extends BaseController
 { 
     public function login() 
     {   
-        $user = new User();
+        $user = new UserModel();
+
         if ($this->isPost()) {
             $request = $this->request();
             $login = $user->checkUserLogin($request);
@@ -15,8 +16,7 @@ class UserController extends BaseController
                 $_SESSION['id'] = $login->id;
                 $_SESSION['name'] = $request['name'];
                 $_SESSION['timeout'] = time();
-                $_SESSION['user'] = $request;
-                
+
                 if ($request['rm']) {
                     setcookie('name', $request['name'], time() + (86400 * 30), "/");
                     setcookie('password', $request['password'], time() + (86400 * 30), "/");
@@ -29,7 +29,11 @@ class UserController extends BaseController
                     unset($_COOKIE['rm']); 
                     setcookie('rm', 0, -(time() + (86400 * 30)), '/');
                 }
-                return header('Location: home');
+                header('Location: home');
+            }
+        } else {
+            if($user->checkIsLoggedIn()) {
+                header('Location: home');
             }
         }
 
@@ -38,7 +42,7 @@ class UserController extends BaseController
 
     public function register()
     {
-        $user = new User();
+        $user = new UserModel();
 
         if($this->isPost()) {
             $request = $this->request();

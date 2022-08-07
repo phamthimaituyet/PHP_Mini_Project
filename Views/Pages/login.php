@@ -9,6 +9,33 @@
     <link href="./public/css/main.css" rel="stylesheet">
 </head>
 
+<?php
+// define variables and set to empty values
+$nameErr = $pwdErr = "";
+$name = $pwd = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["name"])) {
+        $nameErr = "Name is required";
+    } else {
+        $name = test_input($_POST["name"]);
+    }
+
+    if (empty($_POST["password"])) {
+        $website = "";
+    } else {
+        $website = test_input($_POST["password"]);
+    }
+}
+
+function test_input($data): string
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    return htmlspecialchars($data);
+}
+?>
+
 <body>
     <div class="form">
         <div class="form__box">

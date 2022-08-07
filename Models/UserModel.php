@@ -2,7 +2,7 @@
 
 include_once 'BaseModel.php';
 
-class User extends BaseModel
+class UserModel extends BaseModel
 {
     public function __construct()
     {
@@ -18,6 +18,18 @@ class User extends BaseModel
             return $this->getFirst($result);
         }
         return false;
+    }
+
+    function checkIsLoggedIn(): bool
+    {
+        try {
+            if (array_key_exists('id',$_SESSION)) {
+                return true;
+            }
+            return false;
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     function singupUser($request)
